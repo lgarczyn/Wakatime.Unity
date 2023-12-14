@@ -1,6 +1,7 @@
 ﻿#if (UNITY_EDITOR)
 
 using System;
+using System.Globalization;
 using System.IO;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -127,7 +128,7 @@ namespace Wakatime
             {
                 Entity = entity,
                 EntityType = EntityTypes.File,
-                Timestamp = DateTime.Now.ToUnixTimeFloat().ToString(),
+                Timestamp = DateTime.Now.ToUnixTimeFloat().ToString(CultureInfo.InvariantCulture),
                 Project = Settings.ProjectName,
                 BranchName = GitClient?.GetBranchName(workingDir),
 				IsWrite = false,
